@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   Button,
@@ -60,7 +60,10 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   );
 }
 function HomeScreen({navigation}) {
-  const handleLogout = () => navigation.navigate('Login')
+  const handleLogout = () => navigation.navigate('Login');
+  useEffect(() => {
+    setTimeout(handleLogout, 5000);
+  }, []);
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
